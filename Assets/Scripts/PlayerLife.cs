@@ -10,9 +10,11 @@ public class PlayerLife : MonoBehaviour {
     bool invincible;
     SpriteRenderer sr;
     public float clign = 0.1f;
+    AudioSource audio;
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         puc = GetComponent<Platformer2DUserControl>();
         gun = GetComponentInChildren<Gun>();
         sr = GetComponent<SpriteRenderer>();
@@ -22,13 +24,20 @@ public class PlayerLife : MonoBehaviour {
     {
         if (!invincible)
         {
-            lifes--;
-            if (lifes == 0)
-                Dead();
-            StartCoroutine(InvincibleCorout());
-            StartCoroutine(Clignote());
-            if(freeze)
+            audio.pitch = 1 + Random.Range(-0.1f, 0.1f);
+            audio.Play();
+            if (freeze)
+            {
                 StartCoroutine(FreezeCorout());
+            }
+            else
+            {
+                lifes--;
+                if (lifes == 0)
+                    Dead();
+                StartCoroutine(InvincibleCorout());
+                StartCoroutine(Clignote());
+            }
         }
     }
 

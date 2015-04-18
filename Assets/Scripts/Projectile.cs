@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour {
     void ToGelee()
     {
         GameObject o = pool.GetGelee();
+        o.GetComponent<AudioSource>().Play();
         o.transform.position = transform.position;
         Despawn();
     }
