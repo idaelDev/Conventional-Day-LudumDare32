@@ -108,5 +108,10 @@ public class PlatformerCharacter2D : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    public Boolean FacingRight
+    {
+        get { return m_FacingRight; }
+    }
 }
 
