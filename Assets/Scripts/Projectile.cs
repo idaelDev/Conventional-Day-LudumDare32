@@ -38,15 +38,25 @@ public class Projectile : MonoBehaviour {
     {
         GameObject o = pool.GetGelee();
         o.transform.position = transform.position;
+        Despawn();
+    }
+
+    void Despawn()
+    {
         timer = 0f;
         gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Gelee")
+        if (other.gameObject.tag == "Gelee")
         {
             right = !right;
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            Despawn();
+            other.GetComponent<PlayerLife>().LooseLife();
         }
         else
         {
