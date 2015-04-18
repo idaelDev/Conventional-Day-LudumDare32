@@ -3,20 +3,14 @@ using System.Collections;
 
 public class Gun : MonoBehaviour {
 
-    public GameObject projectile;
-    public int nbProjectile = 3;
+
     public PlatformerCharacter2D p2D;
     public float gunForce = 10f;
-    private GameObject[] projectiles;
+    public ProjectilePool pool;
 
 	// Use this for initialization
 	void Start () {
-	    projectiles = new GameObject[nbProjectile];
-        for(int i=0; i<nbProjectile; i++)
-        {
-            projectiles[i] = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
-            projectiles[i].SetActive(false);
-        }
+
 
 	}
 	
@@ -30,15 +24,12 @@ public class Gun : MonoBehaviour {
 
     void Fire()
     {
-        for(int i=0; i<nbProjectile; i++)
+        GameObject o = pool.GetProjectile();
+        if(o != null)
         {
-            if(!projectiles[i].activeSelf)
-            {
-                projectiles[i].SetActive(true);
-                projectiles[i].transform.position = transform.position;
-                projectiles[i].GetComponent<Projectile>().right = p2D.FacingRight;
-                break;
-            }
+            o.transform.position = transform.position;
+            o.GetComponent<Projectile>().right = p2D.FacingRight;
+            o.GetComponent<Projectile>().pool = pool;
         }
     }
 }

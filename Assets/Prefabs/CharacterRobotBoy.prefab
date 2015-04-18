@@ -217,10 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcee3fd4ec890424e9958e7a163528a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 153146, guid: d9998981b153fee4f8902d97c96482d7, type: 2}
-  nbProjectile: 3
   p2D: {fileID: 11400002}
   gunForce: 1000
+  pool: {fileID: 11434302, guid: 205e3d0bf5618a64f9b1263a223183e9, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

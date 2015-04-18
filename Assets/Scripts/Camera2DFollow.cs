@@ -9,6 +9,7 @@ public class Camera2DFollow : MonoBehaviour
     public float lookAheadFactor = 3;
     public float lookAheadReturnSpeed = 0.5f;
     public float lookAheadMoveThreshold = 0.1f;
+    public float heightOffset = 0f;
 
     private float m_OffsetZ;
     private Vector3 m_LastTargetPosition;
@@ -41,7 +42,7 @@ public class Camera2DFollow : MonoBehaviour
             m_LookAheadPos = Vector3.MoveTowards(m_LookAheadPos, Vector3.zero, Time.deltaTime*lookAheadReturnSpeed);
         }
 
-        Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward*m_OffsetZ;
+        Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward*m_OffsetZ + Vector3.up * heightOffset;
         Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
 
         transform.position = newPos;

@@ -4,9 +4,8 @@ using System.Collections;
 public class Projectile : MonoBehaviour {
 
     public float speed = 5f;
-    public GameObject gelee;
+    public ProjectilePool pool;
     public float ttl = 2f;
-
     public bool right = true;
 
     private Rigidbody2D rigidbody;
@@ -37,7 +36,8 @@ public class Projectile : MonoBehaviour {
 
     void ToGelee()
     {
-        Instantiate(gelee, transform.position, Quaternion.identity);
+        GameObject o = pool.GetGelee();
+        o.transform.position = transform.position;
         timer = 0f;
         gameObject.SetActive(false);
     }
