@@ -9,7 +9,7 @@ public class Enemy1Manager : MonoBehaviour {
 
     private Rigidbody2D body;
     private float direction;
-    private Collider2D trigger;
+    private Collider2D[] trigger;
     private bool goLeft;
 
 	// Use this for initialization
@@ -18,10 +18,16 @@ public class Enemy1Manager : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
 
         Collider2D[] colliders = GetComponents<Collider2D>();
-
-        foreach(Collider2D coll in colliders){
-            if(coll.isTrigger)
-                trigger = coll;
+        
+        trigger = new Collider2D[2];
+        int j=0;
+        for (int i=0; i < colliders.Length; i++)
+        {
+            if (colliders[i].isTrigger)
+            {
+                trigger[j] = colliders[i];
+                j++;
+            }
         }
 
         speed *= -1;
@@ -31,14 +37,18 @@ public class Enemy1Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        Move();
+        if(gameObject.GetComponent<Renderer>().isVisible)
+            Move();
         
 	}
 
-    void Freeze()
+    public void Freeze()
     {
         speed = 0;
-        trigger.enabled = false;
+        for(int i=0; i<trigger.Length; i++)
+        {
+            trigger[i].enabled = false;
+        }
     }
 
     void Move()
@@ -50,9 +60,9 @@ public class Enemy1Manager : MonoBehaviour {
             Vector3 checkHole;
 
             if (speed < 0)
-                checkHole = new Vector3(transform.position.x - sizeSprite.x, transform.position.y, transform.position.z);
+                checkHole = new Vector3(transform.position.x - sizeSprite.x/2, transform.position.y, transform.position.z);
             else
-                checkHole = new Vector3(transform.position.x + sizeSprite.x, transform.position.y, transform.position.z);
+                checkHole = new Vector3(transform.position.x + sizeSprite.x/2, transform.position.y, transform.position.z);
 
             RaycastHit2D hit = Physics2D.Raycast(checkHole, -Vector2.up * 3);
 
@@ -75,7 +85,7 @@ public class Enemy1Manager : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Wall")
+        if (other.tag == "Wall" || other.tag == "Enemy")
         {
             Reverse();
         }
