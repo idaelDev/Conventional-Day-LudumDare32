@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 12ef7cbdfe0e143fa858a324456c8979
+timeCreated: 1429393427
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: PrototypeGreen02x02
@@ -39,7 +41,7 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 6
+  alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 204.800003
@@ -67,3 +69,4 @@ TextureImporter:
   spritePackingTag: 
   userData: 
   assetBundleName: 
+  assetBundleVariant: 
