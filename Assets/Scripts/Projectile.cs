@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour {
         Despawn();
     }
 
-    void Despawn()
+    public void Despawn()
     {
         timer = 0f;
         gameObject.SetActive(false);
@@ -58,12 +58,7 @@ public class Projectile : MonoBehaviour {
             Despawn();
             other.GetComponent<PlayerLife>().LooseLife(true);
         }
-        else if(other.gameObject.tag == "Enemy")
-        {
-            other.GetComponent<Enemy1Manager>().Freeze();
-            Despawn();
-        }
-        else
+        else if(other.gameObject.tag == "Wall")
         {
             ToGelee();
         }

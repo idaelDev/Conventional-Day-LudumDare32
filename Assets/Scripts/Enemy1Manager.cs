@@ -6,7 +6,7 @@ public class Enemy1Manager : MonoBehaviour {
     public float speed = 1;
     private Vector2 sizeSprite;
     public bool avoidHole = false;
-
+    public GameObject gelee;
     private Rigidbody2D body;
     private float direction;
     private Collider2D trigger;
@@ -32,8 +32,8 @@ public class Enemy1Manager : MonoBehaviour {
 
     public void Freeze()
     {
-        speed = 0;
-        trigger.enabled = false;
+        Instantiate(gelee, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     void Move()
@@ -64,9 +64,14 @@ public class Enemy1Manager : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Wall" || other.tag == "Enemy")
+        if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Enemy")
         {
             Reverse();
+        }
+        else if(other.gameObject.tag == "Projectile")
+        {
+            other.GetComponent<Projectile>().Despawn();
+            Freeze();
         }
     }
 }
