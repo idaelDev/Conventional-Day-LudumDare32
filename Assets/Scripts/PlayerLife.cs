@@ -8,11 +8,14 @@ public class PlayerLife : MonoBehaviour {
     Platformer2DUserControl puc;
     Gun gun;
     bool invincible;
+    SpriteRenderer sr;
+    public float clign = 0.1f;
 
     void Start()
     {
         puc = GetComponent<Platformer2DUserControl>();
         gun = GetComponentInChildren<Gun>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     public void LooseLife(bool freeze)
@@ -23,6 +26,7 @@ public class PlayerLife : MonoBehaviour {
             if (lifes == 0)
                 Dead();
             StartCoroutine(InvincibleCorout());
+            StartCoroutine(Clignote());
             if(freeze)
                 StartCoroutine(FreezeCorout());
         }
@@ -58,6 +62,21 @@ public class PlayerLife : MonoBehaviour {
         {
             LooseLife(false);
         }
+    }
+
+    IEnumerator Clignote()
+    {
+        float timer = 0f;
+        Color c = sr.color;
+        while(timer < timeToFreeze)
+        {
+            sr.color = new Color(1, 1, 1, 0);
+            yield return new WaitForSeconds(clign);
+            sr.color = c;
+            yield return new WaitForSeconds(clign);
+            timer += 2 * clign;
+        }
+        yield return 0;
     }
 
 }
