@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer >= ttl)
         {
-            ToGelee();
+            Despawn();
         }
     }
 
