@@ -56,7 +56,12 @@ public class Projectile : MonoBehaviour {
         else if (other.gameObject.tag == "Player")
         {
             Despawn();
-            other.GetComponent<PlayerLife>().LooseLife();
+            other.GetComponent<PlayerLife>().LooseLife(true);
+        }
+        else if(other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<Enemy1Manager>().Freeze();
+            Despawn();
         }
         else
         {

@@ -7,6 +7,7 @@ public class PlayerLife : MonoBehaviour {
     public float timeToFreeze = 2f;
     Platformer2DUserControl puc;
     Gun gun;
+    bool invincible;
 
     void Start()
     {
@@ -14,18 +15,17 @@ public class PlayerLife : MonoBehaviour {
         gun = GetComponentInChildren<Gun>();
     }
 
-    void Update()
+    public void LooseLife(bool freeze)
     {
-        if (Input.GetKeyDown(KeyCode.M))
-            LooseLife();
-    }
-
-    public void LooseLife()
-    {
-        StartCoroutine(Freeze());
-        lifes--;
-        if (lifes == 0)
-            Dead();
+        if (!invincible)
+        {
+            lifes--;
+            if (lifes == 0)
+                Dead();
+            StartCoroutine(InvincibleCorout());
+            if(freeze)
+                StartCoroutine(FreezeCorout());
+        }
     }
 
     void Dead()
@@ -34,7 +34,7 @@ public class PlayerLife : MonoBehaviour {
         Application.LoadLevel(Application.loadedLevel);
     }
 
-    IEnumerator Freeze()
+    IEnumerator FreezeCorout()
     {
         puc.enabled = false;
         gun.enabled = false;
@@ -42,6 +42,22 @@ public class PlayerLife : MonoBehaviour {
         puc.enabled = true;
         gun.enabled = true;
         yield return 0;
+    }
+
+    IEnumerator InvincibleCorout()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(timeToFreeze);
+        invincible = false;
+        yield return 0;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            LooseLife(false);
+        }
     }
 
 }

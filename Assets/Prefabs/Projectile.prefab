@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604f4d6fa4072094d933083fdc767542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  gelee: {fileID: 153146, guid: 80c277df46ece1f45ad3f3cf7a4677b9, type: 2}
-  ttl: 1.5
+  speed: 20
+  pool: {fileID: 0}
+  ttl: .300000012
   right: 1
 --- !u!212 &21263312
 SpriteRenderer:
