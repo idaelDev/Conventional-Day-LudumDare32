@@ -9,26 +9,14 @@ public class Enemy1Manager : MonoBehaviour {
 
     private Rigidbody2D body;
     private float direction;
-    private Collider2D[] trigger;
-    private bool goLeft;
+    private Collider2D trigger;
 
 	// Use this for initialization
 	void Awake () {
         sizeSprite = new Vector2(GetComponent<SpriteRenderer>().sprite.bounds.size.x,GetComponent<SpriteRenderer>().sprite.bounds.size.y);
         body = GetComponent<Rigidbody2D>();
 
-        Collider2D[] colliders = GetComponents<Collider2D>();
-        
-        trigger = new Collider2D[2];
-        int j=0;
-        for (int i=0; i < colliders.Length; i++)
-        {
-            if (colliders[i].isTrigger)
-            {
-                trigger[j] = colliders[i];
-                j++;
-            }
-        }
+        trigger = GetComponentInChildren<Collider2D>();
 
         speed *= -1;
         transform.Rotate(0, 180, 0);
@@ -45,42 +33,33 @@ public class Enemy1Manager : MonoBehaviour {
     public void Freeze()
     {
         speed = 0;
-        for(int i=0; i<trigger.Length; i++)
-        {
-            trigger[i].enabled = false;
-        }
+        trigger.enabled = false;
     }
 
     void Move()
     {
-        body.velocity = new Vector2(speed, body.velocity.y);
-
-
         if(avoidHole){
-            Vector3 checkHole;
+            Vector3 checkHoleLeft = new Vector3(transform.position.x - sizeSprite.x/2, transform.position.y, transform.position.z);
+            Vector3 checkHoleRight =  new Vector3(transform.position.x + sizeSprite.x/2, transform.position.y, transform.position.z); 
 
-            if (speed < 0)
-                checkHole = new Vector3(transform.position.x - sizeSprite.x/2, transform.position.y, transform.position.z);
-            else
-                checkHole = new Vector3(transform.position.x + sizeSprite.x/2, transform.position.y, transform.position.z);
+            RaycastHit2D hit1 = Physics2D.Raycast(checkHoleLeft, -Vector2.up * 3);
+            RaycastHit2D hit2 = Physics2D.Raycast(checkHoleRight, -Vector2.up * 3);
 
-            RaycastHit2D hit = Physics2D.Raycast(checkHole, -Vector2.up * 3);
-
-            if (hit.collider == null)
+            if (hit1.collider == null || hit2.collider == null)
             {
                 Reverse();
             }
                 
         }
+
+
+        body.velocity = new Vector2(speed, body.velocity.y);
     }
 
     void Reverse()
     {
         transform.Rotate(0, 180, 0);
         speed *= -1;
-
-        
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
