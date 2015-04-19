@@ -8,7 +8,7 @@ public class Restarter : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Application.LoadLevel(Application.loadedLevelName);
+            other.GetComponent<PlayerLife>().lifes = 0;
         }
     }
 }

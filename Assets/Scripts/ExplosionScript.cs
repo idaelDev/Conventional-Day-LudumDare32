@@ -10,9 +10,14 @@ public class ExplosionScript : MonoBehaviour {
     private Image imgBlank;
     private float calm;
     public float beforeCalm = 8;
+    public AudioSource music;
+    public float timeToWait = 10f;
+    public GameObject player;
+    SpriteRenderer sr;
 
 	// Use this for initialization
 	void Start () {
+        sr = GetComponent<SpriteRenderer>();
         sounds = GetComponents<AudioSource>();
         imgBlank = GetComponentInChildren<Image>();
         passBas = GetComponent<AudioLowPassFilter>();
@@ -24,6 +29,7 @@ public class ExplosionScript : MonoBehaviour {
 
         if (activeExplosion)
         {
+            StartCoroutine(LoadEnd());
             passBas.enabled = true;
             for (int i = 0; i < sounds.Length; i++)
             {
@@ -31,6 +37,10 @@ public class ExplosionScript : MonoBehaviour {
             }
 
             imgBlank.color = new Color(imgBlank.color.r, imgBlank.color.g, imgBlank.color.b, 1.0f);
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+            sr.enabled = true;
+            player.GetComponent<Platformer2DUserControl>().enabled = false;
+            player.GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
             StartCoroutine(TempestBeforeCalm());
            
@@ -61,8 +71,15 @@ public class ExplosionScript : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            music.Stop();
             activeExplosion = true;
         }
 
+    }
+
+    IEnumerator LoadEnd()
+    {
+        yield return new WaitForSeconds(timeToWait);
+        Application.LoadLevel(2);
     }
 }

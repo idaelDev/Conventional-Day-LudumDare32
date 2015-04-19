@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class PlatformerCharacter2D : MonoBehaviour
 {
+    public float geleeJump = 400;
+    public float jump = 400;
+    bool onGelee = false;
     [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
     [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
-
+    
     private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
@@ -94,7 +97,10 @@ public class PlatformerCharacter2D : MonoBehaviour
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Anim.SetBool("Ground", false);
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            if(onGelee)
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 1.2f));
+            else
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
     }
 
@@ -125,12 +131,20 @@ public class PlatformerCharacter2D : MonoBehaviour
     {
         if (other.gameObject.tag == "Wall")
             m_AirControl = true;
+        if (other.gameObject.tag == "Gelee")
+        {
+            onGelee = false;
+        }
     }
 
     void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Wall")
             m_AirControl = false;
+        if (other.gameObject.tag == "Gelee")
+        {
+            onGelee = true ;
+        }
     }
 }
 

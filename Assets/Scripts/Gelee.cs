@@ -5,12 +5,28 @@ public class Gelee : MonoBehaviour {
 
     Rigidbody2D rb;
     AudioSource audio;
+    public bool temp = false;
+    public float ttl = 15f;
+    private float timer = 0f;
 
     // Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         audio = GetComponent<AudioSource>();
 	}
+
+    void Update()
+    {
+        if (temp)
+        {
+            timer += Time.deltaTime;
+            if (timer >= ttl)
+            {
+                timer = 0f;
+                gameObject.SetActive(false);
+            }
+        }
+    }
 	
 	void OnTriggerEnter2D(Collider2D other)
     {

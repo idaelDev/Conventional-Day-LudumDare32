@@ -11,6 +11,10 @@ public class PlayerLife : MonoBehaviour {
     SpriteRenderer sr;
     public float clign = 0.1f;
     AudioSource audio;
+    public AudioClip gameOverClip;
+    public Camera cam;
+    public SceneFadeInOut inout;
+    Animator anim;
 
     void Start()
     {
@@ -18,6 +22,7 @@ public class PlayerLife : MonoBehaviour {
         puc = GetComponent<Platformer2DUserControl>();
         gun = GetComponentInChildren<Gun>();
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     public void LooseLife(bool freeze)
@@ -33,27 +38,46 @@ public class PlayerLife : MonoBehaviour {
             else
             {
                 lifes--;
-                if (lifes == 0)
-                    Dead();
                 StartCoroutine(InvincibleCorout());
                 StartCoroutine(Clignote());
             }
         }
     }
 
-    void Dead()
+    void Update()
     {
+        if (lifes <= 0)
+            Dead();
+    }
+
+    public void Dead()
+    {
+        if(!audio.isPlaying)
+        {
+            audio.clip = gameOverClip;
+            audio.Play();
+        }
         puc.enabled = false;
-        Application.LoadLevel(Application.loadedLevel);
+        cam.GetComponent<Camera2DFollow>().enabled = false;
+        cam.GetComponent<AudioSource>().Stop();
+        inout.EndScene();
+    }
+
+    IEnumerator DeadCorout()
+    {
+        yield return new WaitForSeconds(2);
+        inout.EndScene();
     }
 
     IEnumerator FreezeCorout()
     {
+        anim.SetBool("Freeze", true);
         puc.enabled = false;
         gun.enabled = false;
         yield return new WaitForSeconds(timeToFreeze);
         puc.enabled = true;
         gun.enabled = true;
+        anim.SetBool("Freeze", false);
         yield return 0;
     }
 

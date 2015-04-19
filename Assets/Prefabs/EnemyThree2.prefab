@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6109252}
   - 50: {fileID: 5091702}
   - 114: {fileID: 11481524}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: EnemyThree2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -28,9 +28,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 458658}
   - 61: {fileID: 6199010}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

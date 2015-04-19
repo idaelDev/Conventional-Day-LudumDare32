@@ -27,12 +27,12 @@ public class Pierre : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             other.GetComponent<PlayerLife>().LooseLife(false);
             Destroy(gameObject);
         }
-        else if (other.tag == "Wall")
+        else if (other.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }

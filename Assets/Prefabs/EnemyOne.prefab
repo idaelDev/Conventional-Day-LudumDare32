@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 469704}
   - 61: {fileID: 6198666}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,10 +25,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 401560}
   - 212: {fileID: 21292358}
-  - 61: {fileID: 6124436}
   - 114: {fileID: 11485378}
   - 50: {fileID: 5000410}
-  m_Layer: 8
+  - 58: {fileID: 5858222}
+  m_Layer: 2
   m_Name: EnemyOne
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.63000011, y: 2.54999995, z: 6.44999981}
+  m_LocalPosition: {x: 27.2588291, y: 16.8217964, z: 6.44999981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 469704}
@@ -75,8 +75,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6124436
-BoxCollider2D:
+--- !u!58 &5858222
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -87,7 +87,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 2.5}
+  m_Radius: 1.02999997
 --- !u!61 &6198666
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.54999995, y: 2.54999995}
+  m_Size: {x: 2.54999995, y: 1.62}
 --- !u!114 &11485378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   avoidHole: 0
-  gelee: {fileID: 153146, guid: 80c277df46ece1f45ad3f3cf7a4677b9, type: 2}
+  gelee: {fileID: 153146, guid: ce639c06b521f9f4b9b082be72066486, type: 2}
 --- !u!212 &21292358
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -10,22 +10,25 @@ public class Enemy1Manager : MonoBehaviour {
     private Rigidbody2D body;
     private float direction;
     private Collider2D trigger;
+    Animator anim;
 
 	// Use this for initialization
 	void Awake () {
-        sizeSprite = new Vector2(GetComponent<SpriteRenderer>().sprite.bounds.size.x,GetComponent<SpriteRenderer>().sprite.bounds.size.y);
+        sizeSprite = new Vector2(GetComponentInChildren<SpriteRenderer>().sprite.bounds.size.x, GetComponentInChildren<SpriteRenderer>().sprite.bounds.size.y);
         body = GetComponent<Rigidbody2D>();
 
         trigger = GetComponentInChildren<Collider2D>();
 
         speed *= -1;
-        transform.Rotate(0, 180, 0);
+        anim = GetComponentInChildren<Animator>();
+        anim.SetFloat("speed", speed);
+        //transform.Rotate(0, 180, 0);
 
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if(gameObject.GetComponent<Renderer>().isVisible)
+        //if(gameObject.GetComponent<Renderer>().isVisible)
             Move();
         
 	}
@@ -39,32 +42,47 @@ public class Enemy1Manager : MonoBehaviour {
     void Move()
     {
         if(avoidHole){
-            Vector3 checkHoleLeft = new Vector3(transform.position.x - sizeSprite.x/2, transform.position.y, transform.position.z);
-            Vector3 checkHoleRight =  new Vector3(transform.position.x + sizeSprite.x/2, transform.position.y, transform.position.z); 
+           Vector3 checkHole;
 
-            RaycastHit2D hit1 = Physics2D.Raycast(checkHoleLeft, -Vector2.up * 3);
-            RaycastHit2D hit2 = Physics2D.Raycast(checkHoleRight, -Vector2.up * 3);
+            if (speed < 0)
+                checkHole = new Vector2(transform.position.x - sizeSprite.x/2, transform.position.y);
+            else
+                checkHole = new Vector2(transform.position.x + sizeSprite.x/2, transform.position.y);
 
-            if (hit1.collider == null || hit2.collider == null)
+            RaycastHit2D hit = Physics2D.Raycast(checkHole, -Vector2.up, 2);
+            
+            Debug.DrawRay(checkHole, -Vector2.up*2);
+            
+            if (hit.collider == null)
             {
+                Debug.Log("test");
                 Reverse();
+            }
+            else
+            {
+                Debug.Log(hit.collider.name + " " + hit.distance);
             }
                 
         }
-
 
         body.velocity = new Vector2(speed, body.velocity.y);
     }
 
     void Reverse()
     {
-        transform.Rotate(0, 180, 0);
+        //transform.Rotate(0, 180, 0);
         speed *= -1;
+        anim.SetFloat("speed", speed);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Gelee")
+        if (other.gameObject.tag == "Wall")
+        {
+            //if(transform.position.y - other.transform.position.y < 1 )
+                Reverse();
+        }
+        else if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Gelee")
         {
             Reverse();
         }
@@ -73,5 +91,19 @@ public class Enemy1Manager : MonoBehaviour {
             other.GetComponent<Projectile>().Despawn();
             Freeze();
         }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            //if(transform.position.y - other.transform.position.y < 1 )
+            Reverse();
+        }
+        else if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Gelee")
+        {
+            Reverse();
+        }
+
     }
 }

@@ -208,10 +208,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 261707429}
   m_RootOrder: 1
-  m_AnchorMin: {x: .19600001, y: .279000014}
-  m_AnchorMax: {x: .797000051, y: .695142031}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -3.05180001e-05}
+  m_AnchorMin: {x: .199297816, y: .27621451}
+  m_AnchorMax: {x: .797000051, y: .896000028}
+  m_AnchoredPosition: {x: -1, y: -35.5}
+  m_SizeDelta: {x: 2, y: -73.0000305}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &410350543
 MonoBehaviour:
@@ -227,19 +227,19 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 19
+    m_Font: {fileID: 12800000, guid: 55baab9dffa81954b91751b5b3f357bb, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Ottawa Treaty became a binding international law on 1999 and prohibes use,
-    stockpiling, production and transfer of Anti-Personnel Mines\r\n\nIn 2009, 2485
+    stockpiling, production and transfer of Anti-Personnel Mines\r\n\nIn 2009, 2.485
     civilians were injured or killed by mines, 1.001 were children."
 --- !u!222 &410350544
 CanvasRenderer:
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 410350543}
-  smooth: .00200000009
+  smooth: .00999999978
 --- !u!1 &1360122048
 GameObject:
   m_ObjectHideFlags: 0
