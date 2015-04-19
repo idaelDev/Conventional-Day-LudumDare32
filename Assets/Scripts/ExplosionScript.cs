@@ -8,6 +8,8 @@ public class ExplosionScript : MonoBehaviour {
     private AudioSource[] sounds;
     private AudioLowPassFilter passBas;
     private Image imgBlank;
+    private float calm;
+    public float beforeCalm = 12;
 
 	// Use this for initialization
 	void Start () {
@@ -29,12 +31,35 @@ public class ExplosionScript : MonoBehaviour {
             }
 
             imgBlank.color = new Color(imgBlank.color.r, imgBlank.color.g, imgBlank.color.b, 1.0f);
-            activeExplosion = false;
             GetComponent<Collider2D>().enabled = false;
-            //retirer le blanc + coupe-haut progressivement
+            StartCoroutine(TempestBeforeCalm());
+           
+            activeExplosion = false;
         }
-        imgBlank
+        
+
+        if (calm > Time.time)
+        {
+            
+            float alpha = Mathf.Lerp(0.0f,1.0f,(calm - Time.time) / beforeCalm);
+            float coupeHaut = Mathf.Lerp(3000, 1000, (calm - Time.time) / beforeCalm);
+            Debug.Log(coupeHaut);
+            //retirer le blanc + coupe-haut progressivement
+
+
+            imgBlank.color = new Color(imgBlank.color.r, imgBlank.color.g, imgBlank.color.b, alpha);
+            passBas.cutoffFrequency = coupeHaut;
+        }
+
 	}
+
+    IEnumerator TempestBeforeCalm(){
+        yield return new WaitForSeconds(4f);
+        calm = Time.time + beforeCalm;
+        Debug.Log("bbbff");
+
+
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
