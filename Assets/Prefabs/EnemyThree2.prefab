@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.38999987, y: 2.54999995, z: 6.44999981}
+  m_LocalPosition: {x: 7.71765518, y: -.783447683, z: 6.44999981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458658}
@@ -87,7 +87,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 2.5}
+  m_Size: {x: 2.5, y: 1.89999998}
 --- !u!61 &6199010
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff03d6f9a83de2c4d8d9b7a7797b7f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gelee: {fileID: 153146, guid: 80c277df46ece1f45ad3f3cf7a4677b9, type: 2}
+  gelee: {fileID: 153146, guid: 08d913f5f0770b149a13c1cec04cc41b, type: 2}
   pierre: {fileID: 148666, guid: 711129dd8f0cab14483bd2fb8317f281, type: 2}
-  speedAttack: 5
+  speedAttack: 2
 --- !u!212 &21299408
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5485e2f56028a3c4cb54f5caa167377e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f569251974dc43d48b8f1f95cffff673, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
