@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 452644}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 7
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - 4: {fileID: 464738}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - 4: {fileID: 440336}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 5
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ GameObject:
   - 4: {fileID: 429452}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 12
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,7 +218,7 @@ GameObject:
   - 4: {fileID: 444246}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 11
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,7 +266,7 @@ GameObject:
   - 4: {fileID: 423380}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 14
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,7 +330,7 @@ GameObject:
   - 4: {fileID: 461980}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 9
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +444,7 @@ GameObject:
   - 4: {fileID: 441062}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 8
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -587,7 +587,7 @@ GameObject:
   - 4: {fileID: 446736}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +602,7 @@ GameObject:
   - 4: {fileID: 438798}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -698,7 +698,7 @@ GameObject:
   - 4: {fileID: 445842}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -713,7 +713,7 @@ GameObject:
   - 4: {fileID: 448028}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 13
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -728,7 +728,7 @@ GameObject:
   - 4: {fileID: 461760}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 10
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,7 +791,7 @@ GameObject:
   - 4: {fileID: 479822}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 6
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -888,7 +888,7 @@ GameObject:
   - 4: {fileID: 485336}
   m_Layer: 0
   m_Name: Colonne 1x Collision Gauche
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,7 +936,7 @@ GameObject:
   - 4: {fileID: 427216}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -951,7 +951,7 @@ GameObject:
   - 4: {fileID: 499890}
   m_Layer: 0
   m_Name: Mur 1x Collision gauche 15
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

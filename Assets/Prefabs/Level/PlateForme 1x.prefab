@@ -554,7 +554,7 @@ GameObject:
   - 61: {fileID: 6108598}
   m_Layer: 0
   m_Name: sol_rebord_droit
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,7 +958,7 @@ GameObject:
   - 61: {fileID: 6177358}
   m_Layer: 0
   m_Name: sol_rebord_gauche
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -973,7 +973,7 @@ GameObject:
   - 4: {fileID: 436428}
   m_Layer: 0
   m_Name: PlateForme 1x
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1068,7 +1068,7 @@ GameObject:
   - 4: {fileID: 426250}
   m_Layer: 0
   m_Name: Colonne 1x Collision Gauche
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
