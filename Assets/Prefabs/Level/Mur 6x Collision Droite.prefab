@@ -58,7 +58,7 @@ GameObject:
   - 4: {fileID: 481842}
   m_Layer: 0
   m_Name: Mur 6x Collision Droite
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
