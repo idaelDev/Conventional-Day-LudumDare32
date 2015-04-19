@@ -44,6 +44,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         // Set the vertical animation
         m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+
     }
 
 
@@ -67,7 +68,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         {
             // Reduce the speed if crouching by the crouchSpeed multiplier
             move = (crouch ? move*m_CrouchSpeed : move);
-
+            
             // The Speed animator parameter is set to the absolute value of the horizontal input.
             m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
@@ -112,6 +113,24 @@ public class PlatformerCharacter2D : MonoBehaviour
     public Boolean FacingRight
     {
         get { return m_FacingRight; }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Wall")
+            m_AirControl = false;
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Wall")
+            m_AirControl = true;
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Wall")
+            m_AirControl = false;
     }
 }
 
