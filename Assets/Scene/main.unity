@@ -245,17 +245,17 @@ Prefab:
     - target: {fileID: 11439488, guid: a4d224ed72c3d7242b4c0b2ddfbea047, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d977a7e9fc840394081b79b386ea1582,
+      objectReference: {fileID: 21300000, guid: d295156f538e9b24f9a94a02129d1a0a,
         type: 3}
     - target: {fileID: 11455896, guid: a4d224ed72c3d7242b4c0b2ddfbea047, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d977a7e9fc840394081b79b386ea1582,
+      objectReference: {fileID: 21300000, guid: d295156f538e9b24f9a94a02129d1a0a,
         type: 3}
     - target: {fileID: 11429684, guid: a4d224ed72c3d7242b4c0b2ddfbea047, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d977a7e9fc840394081b79b386ea1582,
+      objectReference: {fileID: 21300000, guid: d295156f538e9b24f9a94a02129d1a0a,
         type: 3}
     - target: {fileID: 22445558, guid: a4d224ed72c3d7242b4c0b2ddfbea047, type: 2}
       propertyPath: m_SizeDelta.x
