@@ -9,7 +9,7 @@ public class ExplosionScript : MonoBehaviour {
     private AudioLowPassFilter passBas;
     private Image imgBlank;
     private float calm;
-    public float beforeCalm = 12;
+    public float beforeCalm = 8;
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +40,6 @@ public class ExplosionScript : MonoBehaviour {
 
         if (calm > Time.time)
         {
-            
             float alpha = Mathf.Lerp(0.0f,1.0f,(calm - Time.time) / beforeCalm);
             float coupeHaut = Mathf.Lerp(3000, 1000, (calm - Time.time) / beforeCalm);
             Debug.Log(coupeHaut);
@@ -54,11 +53,8 @@ public class ExplosionScript : MonoBehaviour {
 	}
 
     IEnumerator TempestBeforeCalm(){
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         calm = Time.time + beforeCalm;
-        Debug.Log("bbbff");
-
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
