@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temp: 1
-  ttl: 15
+  ttl: 10
 --- !u!212 &21263312
 SpriteRenderer:
   m_ObjectHideFlags: 1

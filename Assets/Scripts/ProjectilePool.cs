@@ -48,6 +48,7 @@ public class ProjectilePool : MonoBehaviour {
             geleeCount = 0;
         gelees[geleeCount].SetActive(true);
         gelees[geleeCount].GetComponent<Rigidbody2D>().isKinematic = false;
+        gelees[geleeCount].GetComponent<Gelee>().timer = 0f;
         return gelees[geleeCount];
     }
 

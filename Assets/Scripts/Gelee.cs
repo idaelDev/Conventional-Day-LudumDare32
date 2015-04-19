@@ -7,7 +7,7 @@ public class Gelee : MonoBehaviour {
     AudioSource audio;
     public bool temp = false;
     public float ttl = 15f;
-    private float timer = 0f;
+    public float timer = 0f;
 
     // Use this for initialization
 	void Start () {
@@ -17,6 +17,12 @@ public class Gelee : MonoBehaviour {
 
     void Update()
     {
+        audio.mute = false;
+        if(!GetComponent<Renderer>().isVisible)
+        {
+            audio.mute = true;
+        }
+
         if (temp)
         {
             timer += Time.deltaTime;

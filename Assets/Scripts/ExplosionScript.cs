@@ -41,6 +41,7 @@ public class ExplosionScript : MonoBehaviour {
             sr.enabled = true;
             player.GetComponent<Platformer2DUserControl>().enabled = false;
             player.GetComponent<SpriteRenderer>().enabled = false;
+            player.GetComponentInChildren<Gun>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
             StartCoroutine(TempestBeforeCalm());
            
