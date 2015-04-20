@@ -7,19 +7,30 @@ public class ExplosionScript : MonoBehaviour {
     private bool activeExplosion = false;
     private AudioSource[] sounds;
     private AudioLowPassFilter passBas;
-    private Image imgBlank;
+    private Image[] imgs;
     private float calm;
     public float beforeCalm = 8;
     public AudioSource music;
     public float timeToWait = 10f;
     public GameObject player;
-    SpriteRenderer sr;
+
+    public GameObject corpse;
+    private Image fumee;
+    private Image imgBlank;
 
 	// Use this for initialization
 	void Start () {
-        sr = GetComponent<SpriteRenderer>();
         sounds = GetComponents<AudioSource>();
-        imgBlank = GetComponentInChildren<Image>();
+        imgs = GetComponentsInChildren<Image>();
+
+        for (int i = 0; i < imgs.Length; i++)
+        {
+            if (imgs[i].name == "Fumee")
+                fumee = imgs[i];
+            else if (imgs[i].name == "Blanc")
+                imgBlank = imgs[i];
+        }
+
         passBas = GetComponent<AudioLowPassFilter>();
         
 	}
@@ -38,7 +49,13 @@ public class ExplosionScript : MonoBehaviour {
 
             imgBlank.color = new Color(imgBlank.color.r, imgBlank.color.g, imgBlank.color.b, 1.0f);
             transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-            sr.enabled = true;
+            corpse.transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+            SpriteRenderer[] cadavre = corpse.GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer spriteCadavre in cadavre)
+            {
+                spriteCadavre.enabled = true;
+            }
+            fumee.enabled = true;
             player.GetComponent<Platformer2DUserControl>().enabled = false;
             player.GetComponent<SpriteRenderer>().enabled = false;
             player.GetComponentInChildren<Gun>().enabled = false;
