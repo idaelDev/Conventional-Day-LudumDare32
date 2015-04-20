@@ -7,6 +7,8 @@ public class Pause : MonoBehaviour {
 	private bool pause = false;
 	private Canvas cvsPause;
 
+    public Gun scriptGun;
+
 	// Use this for initialization
 	void Start () {
 		cvsPause = GetComponent<Canvas>();
@@ -21,9 +23,11 @@ public class Pause : MonoBehaviour {
 		if (pause) {
 			cvsPause.enabled = true;
 			Time.timeScale = 0;
+            scriptGun.ActivePause(true);
 		} else {
 			cvsPause.enabled = false;
 			Time.timeScale = 1;
+            scriptGun.ActivePause(false);
 		}
 		
 	}

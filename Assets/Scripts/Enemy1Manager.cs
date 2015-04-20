@@ -55,12 +55,7 @@ public class Enemy1Manager : MonoBehaviour {
             
             if (hit.collider == null)
             {
-                Debug.Log("test");
                 Reverse();
-            }
-            else
-            {
-                Debug.Log(hit.collider.name + " " + hit.distance);
             }
                 
         }
@@ -91,6 +86,13 @@ public class Enemy1Manager : MonoBehaviour {
             other.GetComponent<Projectile>().Despawn();
             Freeze();
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Player")
+            Reverse();
+
     }
 
     void OnTriggerStay2D(Collider2D other)

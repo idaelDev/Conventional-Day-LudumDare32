@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour {
     public float gunForce = 10f;
     public ProjectilePool pool;
 
+    private bool pause;
     AudioSource audio;
 
 	// Use this for initialization
@@ -17,7 +18,7 @@ public class Gun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	   if(Input.GetButtonDown("Fire1"))
+	   if(Input.GetButtonDown("Fire1") && !pause)
        {
            Fire();
        }
@@ -34,5 +35,10 @@ public class Gun : MonoBehaviour {
             o.GetComponent<Projectile>().right = p2D.FacingRight;
             o.GetComponent<Projectile>().pool = pool;
         }
+    }
+
+    public void ActivePause(bool active)
+    {
+        pause = active;
     }
 }
