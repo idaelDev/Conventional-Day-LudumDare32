@@ -239,9 +239,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Ottawa Treaty became a binding international law on 1999 and prohibes use,
-    stockpiling, production and transfer of Anti-Personnel Mines\r\n\nIn 2009, 2.485
-    civilians were injured or killed by mines, 1.001 were children."
+  m_Text: "Ottawa Treaty became a binding international law on 1999 and prohibits
+    use, stockpiling, production and transfer of Anti-Personnel Mines\r\n\nIn 2009,
+    2.485 civilians were injured or killed by mines, 1.001 were children."
 --- !u!222 &410350544
 CanvasRenderer:
   m_ObjectHideFlags: 0
